@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title> K&S Wedding — Karthik Raj & Snegha </title>
+  <link rel="icon" type="image/png" href="logo.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & CORE RESET (TAMIL TRADITIONAL LUXURY)
+       ========================================================================== */
+    :root {
+      --ivory: #FFFDF9;
+      --ivory-dark: #F5EFE0;
+      --gold-light: #FDF2CE;
+      --gold: #D4AF37;
+      --gold-dark: #B38F24;
+      --maroon: #630713;
+      --maroon-deep: #330006;
+      --sandalwood: #EBD3B4;
+      --emerald: #074622;
+      --lotus: #E87A90;
+      --peacock-blue: #005F73;
+      --ink: #221416;
+      
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Cormorant Garamond', serif;
+      --font-tamil: 'Noto Serif Tamil', serif;
+      
+      --shadow-luxury: 0 25px 50px rgba(51, 0, 6, 0.09);
+      --border-gold: 1px solid rgba(212, 175, 55, 0.35);
+      --kolam-border: calc(12px + 1vw);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: auto;
+      overflow-x: hidden;
+      background: var(--maroon-deep);
+    }
+
+    body {
+      background-color: var(--ivory);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: clamp(1.1rem, 1.05rem + 0.25vw, 1.35rem);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--maroon-deep);
+    }
+
+    .section-container {
+      position: relative;
+      padding: clamp(60px, 8vw, 120px) max(20px, 4vw);
+      max-width: 1300px;
+      margin: 0 auto;
+      z-index: 10;
+    }
+
+    /* Traditional Thoranam (Mango Leaves) Border Effect */
+    .thoranam-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 24px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 24' preserveAspectRatio='none'%3E%3Cpath d='M0,0 Q12,20 25,0 Q37,20 50,0 Q62,20 75,0 Q87,20 100,0 L100,6 L75,22 L50,6 L25,22 L0,6 Z' fill='%23074622'/%3E%3Cpath d='M12,5 L12,24 M37,5 L37,24 M62,5 L62,24 M87,5 L87,24' stroke='%23B38F24' stroke-width='0.5'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-size: 120px 24px;
+      z-index: 20;
+      opacity: 0.9;
+    }
+
+    .eyebrow {
+      font-family: var(--font-display);
+      font-size: clamp(0.7rem, 0.65rem + 0.2vw, 0.85rem);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      text-align: center;
+      margin-bottom: 8px;
+      display: block;
+    }
+    
+    .eyebrow-tamil {
+      font-family: var(--font-tamil);
+      font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+      color: #e8dcc8;
+      text-align: center;
+      display: block;
+      margin-bottom: 16px;
+      letter-spacing: 0.08em;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--maroon);
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .section-title.tamil {
+      font-family: var(--font-tamil);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--gold-dark);
+      margin-bottom: 24px;
+    }
+
+    /* Premium Kolam Custom Divider */
+    .mandala-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 0 auto clamp(30px, 5vw, 50px);
+      width: min(400px, 80vw);
+    }
+    .mandala-divider::before, .mandala-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .mandala-divider svg {
+      width: clamp(32px, 5vw, 45px);
+      height: clamp(32px, 5vw, 45px);
+      color: var(--maroon);
+    }
+
+    /* Luxury Button Styling */
+    .btn-luxury {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: clamp(12px, 2vw, 16px) clamp(24px, 4vw, 36px);
+      font-family: var(--font-display);
+      font-size: clamp(0.7rem, 0.65rem + 0.15vw, 0.8rem);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      background: linear-gradient(135deg, var(--maroon), var(--maroon-deep));
+      border: 1px solid var(--gold);
+      border-radius: 0;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: 0 10px 25px rgba(51,0,6,0.25);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-luxury:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(51,0,6,0.35);
+      border-color: var(--gold-light);
+      background: linear-gradient(135deg, var(--maroon-deep), var(--maroon));
+    }
+    .btn-luxury.ghost {
+      background: transparent;
+      color: var(--maroon);
+      border: 2px solid var(--maroon);
+    }
+    .btn-luxury.ghost:hover {
+      background: var(--maroon);
+      color: var(--ivory);
+    }
+
+    /* Scroll Reveals */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       2. CINEMATIC INTRO GATEWAY (PRELOADER WITH TAMIL TYPOGRAPHY)
+       ========================================================================== */
+    #temple-gateway {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      background: #0d0103;
+      overflow: hidden;
+      perspective: 1200px;
+    }
+    .gateway-door {
+      width: 50%;
+      height: 100%;
+      position: relative;
+      background: 
+        linear-gradient(rgba(51, 0, 6, 0.45), rgba(15, 0, 2, 0.9)),
+        repeating-linear-gradient(90deg, #42050e 0px, #240105 20px, #140002 40px);
+      box-shadow: inset 0 0 60px rgba(121, 110, 110, 0.85);
+      transition: transform 2.2s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+    .gateway-door.left {
+      transform-origin: left center;
+      border-right: 3px double var(--gold);
+    }
+    .gateway-door.right {
+      transform-origin: right center;
+      border-left: 3px double var(--gold);
+    }
+    
+    .carving-panel {
+      position: absolute;
+      inset: clamp(15px, 4vw, 40px);
+      border: 3px double var(--gold);
+      background-image: radial-gradient(var(--gold-dark) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.25;
+    }
+
+    #temple-gateway.opened .gateway-door.left { transform: rotateY(-95deg); }
+    #temple-gateway.opened .gateway-door.right { transform: rotateY(90deg); }
+    #temple-gateway.extinguished {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease, visibility 0s linear 0.8s;
+    }
+
+    .gateway-aura {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      text-align: center;
+      padding: 20px;
+    }
+    .intro-bell {
+      font-size: clamp(3rem, 10vw, 4.5rem);
+      animation: swingBell 2.5s ease-in-out infinite alternate;
+      filter: drop-shadow(0 0 15px var(--gold));
+    }
+    @keyframes swingBell {
+      0% { transform: rotate(-12deg); transform-origin: top center; }
+      100% { transform: rotate(12deg); transform-origin: top center; }
+    }
+    .gateway-aura p {
+      font-family: var(--font-tamil);
+      color: var(--gold-light);
+      letter-spacing: 0.1em;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      margin-top: 25px;
+    }
+    .gateway-aura span {
+      font-family: var(--font-display);
+      color: var(--sandalwood);
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    /* ==========================================================================
+       3. BACKGROUND CANVAS ENGINE & NAVIGATION
+       ========================================================================== */
+    #ambient-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+    
+    .kolam-overlay {
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z M30 10 L50 30 L30 50 L10 30 Z' fill='none' stroke='%23630713' stroke-width='0.3' stroke-opacity='0.15'/%3E%3Ccircle cx='30' cy='30' r='2' fill='%23D4AF37' fill-opacity='0.2'/%3E%3C/svg%3E");
+      opacity: 0.5;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    #luxury-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: clamp(15px, 3vw, 25px) max(20px, 4vw);
+      z-index: 500;
+      transition: all 0.4s ease;
+    }
+    #luxury-nav.scrolled {
+      padding: 12px max(20px, 4vw);
+      background: rgba(255, 253, 249, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 25px rgba(51, 0, 6, 0.08);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .nav-monogram {
+      font-family: var(--font-tamil);
+      font-weight: 700;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: var(--maroon);
+      text-decoration: none;
+    }
+    .nav-links-wrap {
+      display: flex;
+      gap: clamp(15px, 2vw, 35px);
+    }
+    .nav-links-wrap a {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      opacity: 0.75;
+      transition: all 0.3s ease;
+    }
+    .nav-links-wrap a:hover { opacity: 1; color: var(--maroon); }
+    
+    .menu-trigger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--maroon);
+      cursor: pointer;
+    }
+
+    #audio-control {
+      position: fixed;
+      bottom: max(20px, 4vw);
+      right: max(20px, 4vw);
+      z-index: 999;
+      width: clamp(50px, 6vw, 64px);
+      height: clamp(50px, 6vw, 64px);
+      border-radius: 50%;
+      background: var(--maroon);
+      border: 2px solid var(--gold);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(51,0,6,0.3);
+      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    #audio-control:hover { transform: scale(1.08); }
+    #audio-control svg { width: 45%; height: 45%; fill: currentColor; }
+    #audio-control.muted { opacity: 0.6; background: #444; border-color: #888; }
+
+    @media(max-width: 992px) {
+      .nav-links-wrap {
+        position: fixed;
+        top: 0; right: 0; height: 100vh; width: 280px;
+        background: var(--ivory-dark);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        transform: translateX(100%);
+        transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+        box-shadow: -15px 0 40px rgba(0,0,0,0.12);
+        border-left: 2px solid var(--gold);
+      }
+      .nav-links-wrap.active { transform: translateX(0); }
+      .menu-trigger { display: block; }
+    }
+
+    /* ==========================================================================
+       4. HERO SACRED THEATRE SECTION (VINAYAGAR SPLIT & CENTERPIECE GOPURAM)
+       ========================================================================== */
+    #hero-theatre {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: 
+        linear-gradient(135deg, rgba(50, 30, 20, 0.25) 0%, rgba(40, 25, 15, 0.3) 100%),
+        url("Temple Image - HD.png") center / cover no-repeat fixed;
+      background-attachment: fixed;
+      padding: 100px max(20px, 3vw) 60px;
+      overflow: hidden;
+    }
+    
+    @media(max-width: 992px) {
+      #hero-theatre {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+        padding-top: 120px;
+      }
+    }
+
+    .hero-left-vinayagar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+    .hero-left-vinayagar svg {
+      width: min(280px, 60vw);
+      height: auto;
+      filter: drop-shadow(0 10px 20px rgba(99,7,19,0.15));
+    }
+
+    .hero-center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .gopuram-container {
+      width: min(340px, 70vw);
+      margin-bottom: 20px;
+      filter: drop-shadow(0 15px 30px rgba(51,0,6,0.25));
+    }
+
+    .hero-coupling-statement {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+      color: #f5e6d3;
+      line-height: 1.3;
+      margin: 20px 0 8px;
+      position: relative;
+      letter-spacing: 0.08em;
+    }
+    .hero-coupling-statement::before,
+    .hero-coupling-statement::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    }
+    .hero-coupling-statement::before {
+      top: -20px;
+    }
+    .hero-coupling-statement::after {
+      bottom: -20px;
+    }
+    
+    .hero-coupling-tamil {
+      font-family: var(--font-tamil);
+      font-size: clamp(2rem, 3.8vw, 2.6rem);
+      color: #f4d03f;
+      font-weight: 700;
+      margin: 20px 0;
+      letter-spacing: 0.08em;
+      position: relative;
+    }
+    .hero-coupling-tamil::before,
+    .hero-coupling-tamil::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    }
+    .hero-coupling-tamil::before {
+      top: -16px;
+    }
+    .hero-coupling-tamil::after {
+      bottom: -16px;
+    }
+
+    .hero-meta-date {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      letter-spacing: 0.25em;
+      color: #e8dcc8;
+      text-transform: uppercase;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+    .hero-meta-location {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+      color: #d9cdb8;
+      margin-top: 8px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-right-couple {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    
+    /* Elegant Subtle Floating Peacocks Frame */
+    .peacock-avatar-frame {
+      width: min(240px, 50vw);
+      height: auto;
+      filter: drop-shadow(0 12px 25px rgba(0,95,115,0.15));
+    }
+
+    .scroll-down-indicator {
+      grid-column: 1 / -1;
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      color: #d4af37;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .scroll-down-indicator .indicator-line {
+      width: 1px;
+      height: 45px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    /* ==========================================================================
+       5. THE SACRED INVITATION SCROLL
+       ========================================================================== */
+    #sacred-invitation {
+      background-color: var(--ivory-dark);
+    }
+    .scroll-card {
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--ivory);
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      padding: clamp(45px, 7vw, 80px) clamp(20px, 6vw, 60px);
+      position: relative;
+      box-shadow: var(--shadow-luxury);
+    }
+    
+    /* Authentic Kolam Corner Framework */
+    .scroll-card::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed rgba(99, 7, 19, 0.2);
+      pointer-events: none;
+    }
+    
+    .invitation-salutation {
+      text-align: center;
+      font-family: var(--font-tamil);
+      color: var(--maroon);
+      font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+      margin-bottom: 6px;
+    }
+    .invitation-salutation-en {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      margin-bottom: 35px;
+    }
+
+    .family-hosts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 35px;
+      text-align: center;
+      margin-bottom: 45px;
+    }
+    .host-block h4 {
+      font-family: var(--font-tamil);
+      font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+      color: var(--maroon);
+      margin-bottom: 4px;
+    }
+    .host-block .host-title-en {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .host-block p {
+      font-size: clamp(1.2rem, 2.2vw, 1.4rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    
+    .invitation-central-message {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 45px;
+    }
+    .invitation-central-message p {
+      font-size: clamp(1.2rem, 2.2vw, 1.4rem);
+      margin-bottom: 15px;
+    }
+    
+    .central-names {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      color: var(--maroon);
+      font-weight: 700;
+      margin: 10px 0 2px;
+    }
+    .central-names-tamil {
+      font-family: var(--font-tamil);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .muhurtham-lux-badge {
+      border-top: 2px double var(--gold);
+      border-bottom: 2px double var(--gold);
+      padding: 24px 0;
+      text-align: center;
+      background: rgba(245, 239, 224, 0.4);
+    }
+    .muhurtham-lux-badge h5 {
+      font-family: var(--font-tamil);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      color: var(--maroon);
+      margin-bottom: 2px;
+    }
+    .muhurtham-lux-badge .badge-en {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: #724c24;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .muhurtham-lux-badge .time-data {
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 700;
+      color: var(--maroon-deep);
+    }
+
+    /* ==========================================================================
+       6. THE SACRED HOUR COUNTDOWN
+       ========================================================================== */
+    #sacred-countdown {
+      background: linear-gradient(180deg, var(--maroon-deep) 0%, #170003 100%);
+      color: var(--ivory);
+    }
+    #sacred-countdown .section-title { color: var(--gold-light); }
+    #sacred-countdown .eyebrow { color: var(--gold); }
+    
+    .countdown-matrix {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(15px, 4vw, 40px);
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .countdown-chronometer-ring {
+      position: relative;
+      width: clamp(115px, 16vw, 155px);
+      height: clamp(115px, 16vw, 155px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .countdown-chronometer-ring svg {
+      position: absolute;
+      inset: 0;
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+    }
+    .countdown-chronometer-ring svg circle {
+      fill: none;
+      stroke-width: 4;
+    }
+    .countdown-chronometer-ring svg .track { stroke: rgba(253, 242, 206, 0.08); }
+    .countdown-chronometer-ring svg .progress {
+      stroke: var(--gold);
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s linear;
+    }
+    .chronometer-number {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .chronometer-label {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sandalwood);
+      margin-top: 4px;
+    }
+
+    /* ==========================================================================
+       7. COUPLE STORY TIMELINE
+       ========================================================================== */
+    .corridor-timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 40px auto 0;
+    }
+    .corridor-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 50%; width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      transform: translateX(-50%);
+    }
+    .timeline-node {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    .timeline-node:nth-child(even) { flex-direction: row-reverse; }
+    
+    .timeline-panel {
+      width: 44%;
+      background: var(--ivory);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      padding: clamp(25px, 4vw, 40px);
+      box-shadow: var(--shadow-luxury);
+    }
+    .timeline-panel h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      color: var(--maroon);
+      margin-bottom: 2px;
+    }
+    .timeline-panel h4 {
+      font-family: var(--font-tamil);
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      color: var(--gold-dark);
+      margin-bottom: 6px;
+      font-weight: 400;
+    }
+    .timeline-panel .story-date {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: #724c24;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .timeline-panel p {
+      font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+    }
+    .timeline-center-hub {
+      position: absolute;
+      left: 50%; top: 35px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--maroon);
+      border: 3px solid var(--gold);
+      transform: translateX(-50%);
+      z-index: 5;
+    }
+    .timeline-spacer { width: 44%; }
+
+    @media(max-width: 768px) {
+      .corridor-timeline::before { left: 15px; transform: none; }
+      .timeline-node, .timeline-node:nth-child(even) { flex-direction: row; margin-bottom: 40px; }
+      .timeline-panel { width: calc(100% - 45px); }
+      .timeline-center-hub { left: 15px; transform: translateX(-50%); top: 30px; }
+      .timeline-spacer { display:none; }
+    }
+
+    /* ==========================================================================
+       8. WEDDING RITUALS & EVENTS
+       ========================================================================== */
+    #celebration-events {
+      background-color: var(--ivory-dark);
+    }
+    .events-masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .stone-card {
+      background: var(--ivory);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      padding: clamp(35px, 4vw, 50px) 30px;
+      position: relative;
+      box-shadow: var(--shadow-luxury);
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .stone-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--maroon), var(--gold), var(--emerald));
+    }
+    .stone-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+    .event-ritual-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+    .stone-card h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2vw, 1.6rem);
+      color: var(--maroon);
+      margin-bottom: 2px;
+    }
+    .stone-card h4 {
+      font-family: var(--font-tamil);
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      color: var(--emerald);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+    .event-chronology-badge {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      display: block;
+    }
+    .stone-card p {
+      font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+    }
+
+    /* ==========================================================================
+       9. ROYAL FAMILY LINEAGE SECTION
+       ========================================================================== */
+    .family-dynasty-split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
+      margin-top: 20px;
+    }
+    .dynasty-frame {
+      background: var(--ivory);
+      border: 2px solid rgba(212, 175, 55, 0.2);
+      padding: clamp(40px, 5vw, 60px) 30px;
+      text-align: center;
+      box-shadow: var(--shadow-luxury);
+      position: relative;
+    }
+    .dynasty-frame h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2vw, 1.7rem);
+      color: var(--maroon);
+      margin-bottom: 4px;
+    }
+    .dynasty-frame h4 {
+      font-family: var(--font-tamil);
+      font-size: clamp(1.2rem, 2vw, 1.45rem);
+      color: var(--gold-dark);
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+    .dynasty-member-row {
+      margin-bottom: 24px;
+    }
+    .dynasty-member-row .name {
+      font-size: clamp(1.25rem, 2vw, 1.45rem);
+      font-weight: 600;
+      color: var(--ink);
+      display: block;
+    }
+    .dynasty-member-row .lineage-title {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: #724c24;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 4px;
+    }
+    .dynasty-member-row .lineage-title-ta {
+      font-family: var(--font-tamil);
+      font-size: 0.85rem;
+      color: var(--maroon);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       10. GALLERY MASONRY & LIGHTBOX
+       ========================================================================== */
+    #gallery-theatre {
+      background-color: var(--ivory-dark);
+    }
+    .luxury-gallery-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .gallery-frame-wrapper {
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      background: var(--ivory);
+      padding: 12px;
+      box-shadow: var(--shadow-luxury);
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .gallery-frame-inner-canvas {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--ivory-dark), var(--sandalwood));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .gallery-frame-inner-canvas svg { width: 36px; height: 36px; color: rgba(99, 7, 19, 0.2); }
+    .gallery-frame-wrapper:hover { transform: scale(1.03); border-color: var(--gold); }
+    
+    .gallery-frame-caption {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      text-align: center;
+      margin-top: 12px;
+      display: block;
+      font-weight: 600;
+    }
+    .gallery-frame-caption-ta {
+      font-family: var(--font-tamil);
+      font-size: 0.9rem;
+      color: var(--gold-dark);
+      text-align: center;
+      display: block;
+      margin-top: 2px;
+    }
+
+    #gallery-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 0, 2, 0.96);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    #gallery-lightbox.active { display: flex; }
+    .lightbox-vault {
+      max-width: 650px;
+      width: 100%;
+      text-align: center;
+    }
+    .lightbox-vault .media-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--ivory-dark);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-vault .media-placeholder svg { width: 64px; height: 64px; color: var(--maroon); }
+    .lightbox-vault p {
+      font-family: var(--font-display);
+      color: var(--gold-light);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+    .lightbox-terminate {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: none; border: none;
+      color: var(--gold-light);
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       11. VENUE CARD ARCHITECTURE
+       ========================================================================== */
+    .venue-luxury-card {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      box-shadow: var(--shadow-luxury);
+      border: 2px solid rgba(212, 175, 55, 0.25);
+      background: var(--ivory);
+      margin-top: 20px;
+    }
+    .venue-structural-details {
+      padding: clamp(35px, 5vw, 55px);
+    }
+    .venue-structural-details h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+      color: var(--maroon);
+      margin-bottom: 2px;
+    }
+    .venue-structural-details h4 {
+      font-family: var(--font-tamil);
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      color: var(--gold-dark);
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+    .venue-geo-address {
+      font-size: clamp(1.2rem, 2vw, 1.35rem);
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .venue-feature-pill-box {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+    .luxury-pill {
+      font-family: var(--font-tamil);
+      font-size: 0.8rem;
+      color: var(--maroon);
+      border: 1px solid var(--gold);
+      padding: 6px 14px;
+      background: var(--ivory-dark);
+    }
+    .venue-logistical-notes p {
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+      margin-bottom: 8px;
+      color: #724c24;
+    }
+    .venue-iframe-wrapper {
+      min-height: 380px;
+      position: relative;
+      border-left: 1px solid rgba(212, 175, 55, 0.25);
+      touch-action: none;
+      overflow: hidden;
+    }
+    .venue-iframe-wrapper iframe {
+      position: absolute;
+      inset: 0; width: 100%; height: 100%; border: 0;
+      pointer-events: none;
+    }
+    .venue-iframe-wrapper:hover iframe {
+      pointer-events: auto;
+    }
+
+    /* ==========================================================================
+       12. CHRONO REVELRY ADD TO CALENDAR
+       ========================================================================== */
+    #chrono-add-calendar {
+      background-color: var(--ivory-dark);
+      text-align: center;
+    }
+    .calendar-suite-buttons-row {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    /* ==========================================================================
+       13. INTERACTIVE BLESSINGS WALL
+       ========================================================================== */
+    .blessings-submission-portal {
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .premium-input, .premium-textarea {
+      width: 100%;
+      background: var(--ivory-dark);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      padding: 14px 18px;
+      font-family: var(--font-body);
+      font-size: 1.2rem;
+      color: var(--ink);
+      outline: none;
+      margin-bottom: 15px;
+    }
+    .premium-input:focus, .premium-textarea:focus {
+      border-color: var(--maroon);
+      background: var(--ivory);
+    }
+    .blessings-wall-grid-masonry {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .lotus-blessing-card {
+      background: var(--ivory);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 35% 35% 12% 12% / 18% 18% 12% 12%;
+      padding: 35px 24px 30px;
+      text-align: center;
+      box-shadow: var(--shadow-luxury);
+      animation: gentleFloat 6s ease-in-out infinite alternate;
+    }
+    @keyframes gentleFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+    .lotus-blessing-card .lotus-icon {
+      font-size: 1.8rem;
+      color: var(--lotus);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .lotus-blessing-card p {
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.45;
+      color: var(--ink);
+      margin: 15px 0;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lotus-blessing-card .signatory {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      margin-top: 14px;
+      display: block;
+    }
+
+    /* ==========================================================================
+       14. LUXURY ROYAL TAMIL CONTACT SECTION
+       ========================================================================== */
+    #luxury-contact-suite {
+      background: linear-gradient(180deg, var(--maroon) 0%, var(--maroon-deep) 100%);
+      color: var(--gold-light);
+      text-align: center;
+      padding: clamp(60px, 8vw, 100px) max(20px, 4vw);
+      position: relative;
+      border-top: 2px solid var(--gold);
+    }
+    .contact-eyebrow {
+      font-family: var(--font-display);
+      font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--ivory);
+      margin-bottom: 4px;
+    }
+    .contact-title-ta {
+      font-family: var(--font-tamil);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--gold);
+      margin-bottom: 45px;
+      font-weight: 400;
+    }
+    .contact-icons-horizontal-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(15px, 4vw, 45px);
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .luxury-contact-trigger-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--gold-light);
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      width: 90px;
+    }
+    .icon-sphere-canvas {
+      width: clamp(56px, 8vw, 68px);
+      height: clamp(56px, 8vw, 68px);
+      border-radius: 50%;
+      background: rgba(255, 253, 249, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      color: var(--gold);
+    }
+    .icon-sphere-canvas svg {
+      width: 40%;
+      height: 40%;
+      fill: currentColor;
+    }
+    .node-label-caption {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+    /* Luxury Glow & Hover Animations */
+    .luxury-contact-trigger-node:hover {
+      transform: translateY(-6px);
+    }
+    .luxury-contact-trigger-node:hover .icon-sphere-canvas {
+      background: var(--gold);
+      color: var(--maroon-deep);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+      border-color: var(--gold-light);
+    }
+    .luxury-contact-trigger-node:hover .node-label-caption {
+      opacity: 1;
+      color: var(--ivory);
+    }
+
+    /* ==========================================================================
+       15. ROYAL FOOTER ARCHITECTURE
+       ========================================================================== */
+    #royal-footer {
+      background: #0d0002;
+      color: var(--ivory-dark);
+      padding: 60px 20px 40px;
+      text-align: center;
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
+    }
+    .footer-hashtag {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+    .footer-signature-fineprint {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.4;
+      border-top: 1px solid rgba(255,253,249,0.07);
+      padding-top: 20px;
+      display: block;
+    }
+  </style>
+
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+</head>
+<body>
+
+  <!-- CINEMATIC INTRO GATEWAY PRELOADER -->
+  <div id="temple-gateway">
+    <div class="gateway-door left"><div class="carving-panel"></div></div>
+    <div class="gateway-door right"><div class="carving-panel"></div></div>
+    <div class="gateway-aura">
+
+      <span>You're Invited</span>
+      <button class="btn-luxury enter-btn" id="gateway-trigger-btn">Open Invitation</button>
+    </div>
+  </div>
+
+  <canvas id="ambient-canvas"></canvas>
+  <div class="kolam-overlay"></div>
+
+  <!-- NAVIGATION -->
+  <nav id="luxury-nav">
+    <a href="#" class="nav-monogram"> K ✦ S</a>
+    <button class="menu-trigger" id="mobile-menu-btn">☰</button>
+    <div class="nav-links-wrap" id="nav-links-container">
+      <a href="#hero-theatre">Home</a>
+      <a href="#sacred-invitation">Invitation</a>
+      <a href="#celebration-events">Rituals</a>
+      <a href="#gallery-theatre">Gallery</a>
+      <a href="#venue-logistics">Venue</a>
+      <a href="#blessings-wall">Blessings</a>
+      <a href="#luxury-contact-suite">Contact</a>
+    </div>
+  </nav>
+
+  <button id="audio-control" aria-label="Toggle Wedding Music">
+    <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h6V3h-6z"/></svg>
+  </button>
+
+  <audio id="wedding-audio" preload="metadata" loop>
+    <source src="onaka.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- HERO SECTION WITH TRADITIONAL SPLIT & GOPURAM -->
+  <section id="hero-theatre">
+    <div class="hero-left-vinayagar">
+    </div>
+
+    <div class="hero-center-content">
+      <!-- Detailed Colorful South Indian Temple Gopuram Visual Centerpiece -->
+      <div class="gopuram-illustration">
+      </div>
+      <span class="eyebrow-tamil">திருமண அழைப்பிதழ்</span>
+      <h2 class="hero-coupling-statement">Karthik Raj & Snegha</h2>
+      <h2 class="hero-coupling-tamil">கார்த்திக் ராஜ் <span>♥</span> சினேகா</h2>
+
+      <div class="hero-meta-date">Sunday · 23 August 2026</div>
+      <div class="hero-meta-location">Tolgate, Vellore, Tamil Nadu</div>
+    </div>
+
+    <div class="hero-right-couple">
+    </div>
+
+    <div class="scroll-down-indicator">
+      <span>SCROLL TO ENTER</span>
+      <div class="indicator-line"></div>
+    </div>
+  </section>
+
+  <!-- INVITATION PANEL -->
+  <section id="sacred-invitation" class="section-container">
+    <div class="thoranam-header"></div>
+    <div class="scroll-card reveal">
+      <div class="invitation-salutation">ஸ்ரீ முருகன் துணை</div>      
+      
+
+      <div class="invitation-central-message">
+        <p>We cordially request the honor of your auspicious presence to witness and bless the traditional holy wedding ceremony.</p>
+        <div class="central-names">Karthik Raj ❤️ Snegha</div>
+        <div class="central-names-tamil">கார்த்திக் ராஜ் ♥ சினேகா</div>
+        <p>As they take their sacred steps and lifelong vows surrounded by Vedic melodies, family, and heritage elders.</p>
+      </div>
+
+      <div class="muhurtham-lux-badge">
+        <h5>சுப முகூர்த்தம்</h5>
+        
+        <div class="time-data">On Sunday 23rd August 2026 between 4:30 AM — 6:00 AM</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN METRIC -->
+  <section id="sacred-countdown" class="section-container" style="max-width: 100%; width: 100%;">
+    <span class="eyebrow">The Auspicious Seconds Approach</span>
+    <h2 class="section-title">Counting to the Muhurtham</h2>
+    <div class="mandala-divider">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/></svg>
+    </div>
+    <div class="countdown-matrix" id="countdown-data-anchor"></div>
+  </section>
+
+  
+  <!-- RITUALS SECTION -->
+  <section id="celebration-events" class="section-container" style="max-width: 100%; width: 100%;">
+    <div class="thoranam-header"></div>
+    <div style="max-width:1300px; margin:0 auto;">
+      <span class="eyebrow">The Ritual Procession Schedule</span>
+      <h2 class="section-title">Wedding Events</h2>
+      <div class="mandala-divider">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/></svg>
+      </div>
+
+      <div class="events-masonry-grid">
+        <div class="stone-card reveal">
+          <span class="event-ritual-icon">💍</span>
+          <h3>The Welcoming Reception</h3>
+          <h4>வரவேற்பு விழா</h4>
+          <span class="event-chronology-badge">22 Aug · 06:30 PM</span>
+          <p>A formal interactive evening gathering designed to welcome family network extensions prior to the main wedding day.</p>
+        </div>
+
+        <div class="stone-card reveal">
+          <span class="event-ritual-icon">🎧</span>
+          <h3>DJ</h3>
+          <h4>இன்னிசை விருந்து</h4>
+          <span class="event-chronology-badge">22 Aug · 7:00 PM</span>
+          <p>The celebrations continue with an unforgettable evening of music, dance, and joy. Join us as we light up the night with vibrant beats, laughter, and cherished memories before the wedding festivities begin.</p>
+        </div>
+
+        <div class="stone-card reveal">
+          <span class="event-ritual-icon">🍽️ </span>
+          <h3>Dinner Feast</h3>
+          <h4>இரவு விருந்து</h4>
+          <span class="event-chronology-badge">22 Aug · 7:30 PM</span>
+          <p>Join us for a delightful evening of authentic South Indian hospitality and a grand feast, lovingly prepared to celebrate this joyous occasion. Your presence will make our celebration truly complete.</p>
+        </div>
+
+         <div class="stone-card reveal">
+          <span class="event-ritual-icon">👩‍❤️‍👨</span>
+          <h3>Wedding Ceremony</h3>
+          <h4>சுப முகூர்த்தம்</h4>
+          <span class="event-chronology-badge">23 Aug · 4:30 - 6:00 AM</span>
+          <p>We invite you to witness the sacred Muhurtham, where two hearts unite in love and two families become one. Your gracious presence and blessings will make this auspicious occasion truly memorable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAMILY LINEAGE -->
+  <section id="family-dynasty" class="section-container">
+    <span class="eyebrow">The Pillars of Our Union</span>
+    <h2 class="section-title">Our Families</h2>
+    <div class="mandala-divider">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/></svg>
+    </div>
+
+    <div class="family-dynasty-split">
+      <div class="dynasty-frame reveal">
+        <h3>Groom's Family</h3>
+        <div class="dynasty-member-row">
+          <span class="name">Mr. Ethiraj</span>
+          <span class="lineage-title">Father of the Groom</span>
+        </div>
+        <div class="dynasty-member-row">
+          <span class="name">Mrs. Lakshmi</span>
+          <span class="lineage-title">Mother of the Groom</span>
+        </div>
+      </div>
+
+      <div class="dynasty-frame reveal">
+        <h3>Bride's Family</h3>
+        <div class="dynasty-member-row">
+          <span class="name">Mr. Ramamoorthy</span>
+          <span class="lineage-title">Father of the Bride</span>
+        </div>
+        <div class="dynasty-member-row">
+          <span class="name">Mrs. Vasuki</span>
+          <span class="lineage-title">Mother of the Bride</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- GALLERY HOOKS -->
+  <section id="gallery-theatre" class="section-container" style="max-width: 100%; width: 100%;">
+    <div class="thoranam-header"></div>
+    <img style="max-width:1300px; margin:0 auto;">
+      <span class="eyebrow">Captured Chronicles of Grace</span>
+      <h2 class="section-title">The Gallery</h2>
+      <div class="mandala-divider">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/></svg>
+      </div>
+      <div class="luxury-gallery-columns" id="gallery-hydrator-box"></div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 900px; margin: 40px auto; align-items: center;">
+        <img src="1.1.jpeg" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(51,0,6,0.15);">
+        <img src="4.1.jpeg" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(51,0,6,0.15);">
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- VENUE CONTEXT -->
+  <section id="venue-logistics" class="section-container">
+    <h2 class="section-title">The Venue</h2>
+    <div class="mandala-divider">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/></svg>
+    </div>
+
+    <div class="venue-luxury-card reveal">
+      <div class="venue-structural-details">
+        <h3>Saradhambal Mahal</h3>
+        <h4>சாரதாம்பாள் மஹால்</h4>
+        <p class="venue-geo-address">207 Sasthri Nagar, Tolgate, Vellore, Tamil Nadu 632001</p>
+        <div style="margin-top: 25px;">
+          <a href="https://maps.app.goo.gl/SYTcN6JmbuzNTprx6" target="_blank" class="btn-luxury">Navigate Via Maps →</a>
+        </div>
+      </div>
+      
+      <div class="venue-iframe-wrapper">
+        <iframe
+          src="https://www.google.com/maps?q=Saradhambal+Srinivasan+Mudaliyar+Kalyana+Mahal+Tolgate+Vellore&output=embed&z=17"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          scrolling="no"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAVE THE DATE / INTERACTIVE INTEGRATIONS -->
+  <section id="chrono-add-calendar" class="section-container" style="max-width: 100%; width: 100%;">
+    <span class="eyebrow">Lock The Auspicious Moment</span>
+    <h2 class="section-title">Save The Date</h2>
+    <div class="calendar-suite-buttons-row reveal">
+      <button class="btn-luxury" id="cal-goog-btn">Google Calendar</button>
+      <button class="btn-luxury ghost" id="cal-apple-btn">Apple Calendar</button>
+    </div>
+  </section>
+
+  <!-- BLESSINGS WALL -->
+  <section id="blessings-wall" class="section-container">
+    <span class="eyebrow">Words Extracted from the Heart</span>
+    <h2 class="section-title">Blessings Wall</h2>
+    <div class="mandala-divider">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/></svg>
+    </div>
+
+    <div class="blessings-submission-portal reveal">
+      <form id="virtual-blessing-form-engine">
+        <input type="text" id="blesser-identity" class="premium-input" placeholder="Your Name " required>
+        <textarea id="blesser-message" rows="3" class="premium-textarea" placeholder="Write your warm prayers and blessings here..." required></textarea>
+        <div style="text-align: center;">
+          <button type="submit" class="btn-luxury">Manifest Blessing ✦</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="blessings-wall-grid-masonry" id="blessings-wall-render-grid"></div>
+  </section>
+
+  <!-- NEW PREMIUM LUXURY CONTACT US SUITE (REPLACES HINDI SECTION) -->
+  <section id="luxury-contact-suite">
+    <div class="contact-title">Contact Us</div>    
+    <div class="contact-icons-horizontal-row">
+      <a href="tel:+918098880972" class="luxury-contact-trigger-node" aria-label="Call Us">
+        <div class="icon-sphere-canvas">
+          <!-- Phone Vector Icon -->
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <span class="node-label-caption">Call</span>
+      </a>
+
+      <a href="https://wa.me/918098880972" target="_blank" class="luxury-contact-trigger-node" aria-label="WhatsApp Chat">
+        <div class="icon-sphere-canvas">
+          <!-- WhatsApp Vector Icon -->
+          <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.948 0c3.173.001 6.154 1.24 8.396 3.486 2.24 2.247 3.473 5.232 3.471 8.406-.003 6.597-5.338 11.945-11.89 11.945-2.003-.001-3.973-.51-5.713-1.485L0 24zm6.59-4.846c1.6.95 3.167 1.455 4.757 1.458 5.41.003 9.815-4.409 9.818-9.83.002-2.627-1.023-5.097-2.887-6.963C16.41 1.953 13.935 1.002 11.373 1c-5.414 0-9.825 4.411-9.828 9.832-.001 1.706.469 3.374 1.358 4.854l-.993 3.627 3.71-.973z"/></svg>
+        </div>
+        <span class="node-label-caption">WhatsApp</span>
+      </a>
+
+
+
+      <a href="#venue-logistics" class="luxury-contact-trigger-node" aria-label="Route Navigation Maps">
+        <div class="icon-sphere-canvas">
+          <!-- Maps Vector Icon -->
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <span class="node-label-caption">Maps</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- RE-ENGINEERED FOOTER -->
+  <footer id="royal-footer">
+    <div class="footer-hashtag">#Karthik Weds Snegha</div>
+    <div class="footer-hashtag">வரவேற்பது நாங்க வந்து ஒரு இட்டு பார்த்துட்டு போங்க</div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+      // 1. MOBILE DEVICE OPTIMIZED SMOOTH SCROLL ACCELERATION (LENIS ARCHITECTURE RE-USED)
+      const isMobileDevice = window.innerWidth < 768;
+      const lenis = new Lenis({
+        duration: isMobileDevice ? 1.1 : 1.4,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        smoothWheel: true,
+        touchMultiplier: 1.6,
+      });
+
+      function raf(time) {
+        lenis.load ? lenis.raf(time) : null;
+        if(typeof lenis.raf === 'function') lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. PRELOADER INTRO CLOSURE ENGINE CONTROL
+      const gateway = document.getElementById("temple-gateway");
+      const gatewayBtn = document.getElementById("gateway-trigger-btn");
+      
+      // 3. BACKGROUND MUSIC PLAYER - ONAKA.MP3
+      const audioElement = document.getElementById("wedding-audio");
+      const audioBtn = document.getElementById("audio-control");
+
+      gatewayBtn.addEventListener("click", () => {
+        gateway.classList.add("opened");
+        setTimeout(() => {
+          audioElement.play();
+          audioBtn.classList.add("playing");
+          audioBtn.classList.remove("muted");
+        }, 1500);
+        setTimeout(() => gateway.classList.add("extinguished"), 1600);
+      });
+
+      // MUTE / UNMUTE CONTROL
+      audioBtn.addEventListener("click", () => {
+        if (audioElement.paused) {
+          audioElement.play();
+          audioBtn.classList.add("playing");
+          audioBtn.classList.remove("muted");
+        } else {
+          audioElement.pause();
+          audioBtn.classList.remove("playing");
+          audioBtn.classList.add("muted");
+        }
+      });
+
+      // Update button state when audio ends
+      audioElement.addEventListener("ended", () => {
+        audioBtn.classList.remove("playing");
+        audioBtn.classList.add("muted");
+      });
+
+      // 4. FLOATING JASMINE & LOTUS PETAL PARTICLE SYSTEM
+      const canvas = document.getElementById("ambient-canvas");
+      const ctx = canvas.getContext("2d");
+      let particlesArray = [];
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+
+      class TraditionalPetalParticle {
+        constructor() {
+          this.reset();
+          this.y = Math.random() * canvas.height;
+        }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = -20;
+          this.size = Math.random() * 4 + 4;
+          this.speedY = Math.random() * 0.7 + 0.35;
+          this.speedX = Math.random() * 0.5 - 0.25;
+          // Colors: Jasmine Soft Ivory White or Pink Lotus Petals
+          this.color = Math.random() > 0.4 ? "#FFFDF2" : "#E87A90";
+        }
+        update() {
+          this.y += this.speedY;
+          this.x += this.speedX;
+          if (this.y > canvas.height + 20) this.reset();
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.globalAlpha = 0.3;
+          ctx.fill();
+        }
+      }
+
+      const particleTotalCount = isMobileDevice ? 25 : 60;
+      for (let i = 0; i < particleTotalCount; i++) particlesArray.push(new TraditionalPetalParticle());
+
+      function animateParticleEngine() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particlesArray.length; i++) {
+          particlesArray[i].update();
+          particlesArray[i].draw();
+        }
+        requestAnimationFrame(animateParticleEngine);
+      }
+      animateParticleEngine();
+
+      // 5. STICKY NAV WATCHER SYSTEM
+      const navBar = document.getElementById("luxury-nav");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) navBar.classList.add("scrolled");
+        else navBar.classList.remove("scrolled");
+      });
+
+      const menuBtn = document.getElementById("mobile-menu-btn");
+      const navLinksBox = document.getElementById("nav-links-container");
+      menuBtn.addEventListener("click", () => navLinksBox.classList.toggle("active"));
+      navLinksBox.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => navLinksBox.classList.remove("active"));
+      });
+
+      // 6. SCROLL REVEAL / OBSERVER
+      const revealItems = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: isMobileDevice ? 0.04 : 0.12 });
+
+      revealItems.forEach(item => revealObserver.observe(item));
+
+      // 7. RESPONSIVE MUHURTHAM REVOLVING COUNTDOWN SYSTEM
+      const targetDate = new Date("2026-08-23T05:00:00+05:30");
+      const countdownContainer = document.getElementById("countdown-data-anchor");
+      const unitSpecs = [
+        { key: "days", label: "Days", max: 365 },
+        { key: "hours", label: "Hours", max: 24 },
+        { key: "minutes", label: "Mins", max: 60 },
+        { key: "seconds", label: "Secs", max: 60 }
+      ];
+
+      unitSpecs.forEach(spec => {
+        const ringBox = document.createElement("div");
+        ringBox.className = "countdown-chronometer-ring";
+        ringBox.innerHTML = `
+          <svg viewBox="0 0 120 120">
+            <circle class="track" cx="60" cy="60" r="52"/>
+            <circle class="progress" id="ring-prog-${spec.key}" cx="60" cy="60" r="52" stroke-dasharray="326.7" stroke-dashoffset="0"/>
+          </svg>
+          <div class="chronometer-number" id="ring-num-${spec.key}">00</div>
+          <div class="chronometer-label">${spec.label}</div>
+        `;
+        countdownContainer.appendChild(ringBox);
+      });
+
+      function updateCountdownChronometer() {
+        const now = new Date();
+        let diff = Math.max(0, targetDate - now);
+        const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+        const h = Math.floor(diff / 3600000); diff -= h * 3600000;
+        const m = Math.floor(diff / 60000); diff -= m * 60000;
+        const s = Math.floor(diff / 1000);
+
+        const activeVals = { days: d, hours: h, minutes: m, seconds: s };
+        const maxThresholds = { days: 365, hours: 24, minutes: 60, seconds: 60 };
+
+        unitSpecs.forEach(spec => {
+          const val = activeVals[spec.key];
+          const elNum = document.getElementById(`ring-num-${spec.key}`);
+          if (elNum) elNum.textContent = String(val).padStart(2, '0');
+          const circle = document.getElementById(`ring-prog-${spec.key}`);
+          if (circle) circle.style.strokeDashoffset = 326.7 * (1 - val / maxThresholds[spec.key]);
+        });
+      }
+      setInterval(updateCountdownChronometer, 1000);
+      updateCountdownChronometer();
+
+      const lightbox = document.getElementById("gallery-lightbox");
+
+      const lightboxSlot = document.getElementById("lightbox-rendering-slot");
+      const lightboxCaption = document.getElementById("lightbox-caption-field");
+
+      const closeLightboxBtn = document.getElementById("lightbox-close-trigger");
+      if(closeLightboxBtn && lightbox) {
+        closeLightboxBtn.addEventListener("click", () => lightbox.classList.remove("active"));
+      }
+
+      // 8. CALENDAR INTEGRATION HANDLERS
+      const eventDetails = {
+        title: "Karthik Raj & Snegha - Welcoming Reception",
+        date: "20260822",
+        startTime: "183000",
+        endTime: "213000",
+        description: "Welcoming Reception - Join us for a formal gathering to welcome family before the main wedding day - Saradhambal Mahal, Tolgate, Vellore",
+        location: "Saradhambal Mahal, 207 Sasthri Nagar, Tolgate, Vellore, Tamil Nadu 632001"
+      };
+
+      const gCalBtn = document.getElementById("cal-goog-btn");
+      if(gCalBtn) {
+        gCalBtn.addEventListener("click", () => {
+          const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.title)}&dates=20260822T183000/20260822T213000&location=${encodeURIComponent(eventDetails.location)}&details=${encodeURIComponent(eventDetails.description)}`;
+          window.open(googleCalendarUrl, "_blank");
+        });
+      }
+
+      const appleCalBtn = document.getElementById("cal-apple-btn");
+      if(appleCalBtn) {
+        appleCalBtn.addEventListener("click", () => {
+          const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-${Date.now()}@wedding.local
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').split('.')[0]}Z
+DTSTART:20260822T183000+0530
+DTEND:20260822T213000+0530
+SUMMARY:${eventDetails.title}
+DESCRIPTION:${eventDetails.description}
+LOCATION:${eventDetails.location}
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR`;
+          const blob = new Blob([icsContent], { type: "text/calendar" });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "wedding-reception.ics";
+          link.click();
+          URL.revokeObjectURL(url);
+        });
+      }
+
+      const outlookBtn = document.getElementById("cal-out-btn");
+      if(outlookBtn) {
+        outlookBtn.addEventListener("click", () => {
+          const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(eventDetails.title)}&startdt=2026-08-22T18:30:00&enddt=2026-08-22T21:30:00&location=${encodeURIComponent(eventDetails.location)}&body=${encodeURIComponent(eventDetails.description)}`;
+          window.open(outlookUrl, "_blank");
+        });
+      }
+
+      // 9. BLESSINGS WALL SUBMISSION & RENDERING ENGINE
+      const blessingForm = document.getElementById("virtual-blessing-form-engine");
+      const blessingsGrid = document.getElementById("blessings-wall-render-grid");
+      let blessingsData = JSON.parse(localStorage.getItem("weddingBlessings")) || [];
+
+      function renderBlessingsGrid() {
+        if(!blessingsGrid) return;
+        blessingsGrid.innerHTML = "";
+        blessingsData.forEach((blessing) => {
+          const card = document.createElement("div");
+          card.className = "lotus-blessing-card reveal visible";
+          card.innerHTML = `
+            <div class="lotus-icon">🌸</div>
+            <p>"${blessing.message}"</p>
+            <div class="signatory">— ${blessing.name}</div>
+          `;
+          blessingsGrid.appendChild(card);
+        });
+      }
+
+      if(blessingForm) {
+        blessingForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const nameInput = document.getElementById("blesser-identity");
+          const messageInput = document.getElementById("blesser-message");
+          
+          if(nameInput && messageInput && nameInput.value.trim() && messageInput.value.trim()) {
+            const newBlessing = {
+              name: nameInput.value.trim(),
+              message: messageInput.value.trim()
+            };
+            
+            blessingsData.push(newBlessing);
+            localStorage.setItem("weddingBlessings", JSON.stringify(blessingsData));
+            renderBlessingsGrid();
+            
+            nameInput.value = "";
+            messageInput.value = "";
+            nameInput.focus();
+          }
+        });
+      }
+
+      renderBlessingsGrid();
+
+      // PREVENT SCROLL STUCK ON MAP IFRAME
+      const venueWrapper = document.querySelector(".venue-iframe-wrapper");
+      if (venueWrapper) {
+        venueWrapper.addEventListener("wheel", (e) => {
+          e.preventDefault();
+        }, { passive: false });
+      }
+    });
+  </script>
+</body>
+</html>
