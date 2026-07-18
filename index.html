@@ -1142,7 +1142,7 @@
     }
     .blessings-wall-grid-masonry {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 25px;
       margin-top: 20px;
     }
@@ -1154,6 +1154,9 @@
       text-align: center;
       box-shadow: var(--shadow-luxury);
       animation: gentleFloat 6s ease-in-out infinite alternate;
+    }
+    .lotus-blessing-card.hidden {
+      display: none;
     }
     @keyframes gentleFloat {
       0% { transform: translateY(0); }
@@ -1184,6 +1187,38 @@
       text-transform: uppercase;
       margin-top: 14px;
       display: block;
+    }
+
+    .blessings-load-more-wrapper {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .blessings-load-more-btn {
+      background: var(--maroon);
+      color: var(--gold-light);
+      border: 2px solid var(--gold);
+      padding: 14px 40px;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .blessings-load-more-btn:hover {
+      background: var(--gold);
+      color: var(--maroon);
+      transform: scale(1.05);
+    }
+
+    /* Mobile Responsiveness */
+    @media(max-width: 768px) {
+      .blessings-wall-grid-masonry {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ==========================================================================
@@ -1598,6 +1633,9 @@
     </div>
 
     <div class="blessings-wall-grid-masonry" id="blessings-wall-render-grid"></div>
+    <div class="blessings-load-more-wrapper" id="blessings-load-more-wrapper" style="display: none;">
+      <button class="blessings-load-more-btn" id="blessings-load-more-btn">↓ View More Blessings ↓</button>
+    </div>
   </section>
 
   <!-- NEW PREMIUM LUXURY CONTACT US SUITE (REPLACES HINDI SECTION) -->
@@ -1925,10 +1963,16 @@ END:VCALENDAR`;
         }
       }
 
+      // Pagination state for blessings
+      let visibleBlessingCount = 2;
+
       function renderBlessingsGrid() {
         if(!blessingsGrid) return;
         blessingsGrid.innerHTML = "";
-        blessingsData.forEach((blessing) => {
+        
+        // Show only visible count blessings
+        const visibleBlessings = blessingsData.slice(0, visibleBlessingCount);
+        visibleBlessings.forEach((blessing) => {
           const card = document.createElement("div");
           card.className = "lotus-blessing-card reveal visible";
           card.innerHTML = `
@@ -1938,6 +1982,28 @@ END:VCALENDAR`;
           `;
           blessingsGrid.appendChild(card);
         });
+
+        // Show/hide load more button
+        const loadMoreWrapper = document.getElementById("blessings-load-more-wrapper");
+        
+        if(loadMoreWrapper) {
+          if(blessingsData.length > visibleBlessingCount) {
+            loadMoreWrapper.style.display = "block";
+          } else {
+            loadMoreWrapper.style.display = "none";
+          }
+        }
+      }
+
+      function handleLoadMore() {
+        visibleBlessingCount += 3;
+        renderBlessingsGrid();
+      }
+
+      // Set up load more button listener once
+      const loadMoreBtn = document.getElementById("blessings-load-more-btn");
+      if(loadMoreBtn) {
+        loadMoreBtn.addEventListener("click", handleLoadMore);
       }
 
       if(blessingForm) {
