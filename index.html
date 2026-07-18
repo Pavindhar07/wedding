@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -347,6 +347,21 @@
       cursor: pointer;
     }
 
+    .menu-close-trigger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--maroon);
+      cursor: pointer;
+      margin-bottom: 40px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      transition: transform 0.3s ease;
+    }
+    .menu-close-trigger:hover { transform: scale(1.15); }
+
     #audio-control {
       position: fixed;
       bottom: max(20px, 4vw);
@@ -385,6 +400,7 @@
       }
       .nav-links-wrap.active { transform: translateX(0); }
       .menu-trigger { display: block; }
+      .menu-close-trigger { display: block; }
     }
 
     /* ==========================================================================
@@ -1293,6 +1309,34 @@
   </style>
 
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
+  <!-- FIREBASE SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBGFjJB17euuQF35qvRljgVmp8oHqAnjhU",
+      authDomain: "wedding-f6176.firebaseapp.com",
+      projectId: "wedding-f6176",
+      storageBucket: "wedding-f6176.firebasestorage.app",
+      messagingSenderId: "678648151205",
+      appId: "1:678648151205:web:4d289f4338bbcde7f5a14c",
+      measurementId: "G-PVP8JDTDEJ"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Store Firebase references globally
+    window.firebaseDB = db;
+    window.firebaseCollection = collection;
+    window.firebaseAddDoc = addDoc;
+    window.firebaseQuery = query;
+    window.firebaseOrderBy = orderBy;
+    window.firebaseOnSnapshot = onSnapshot;
+    window.firebaseServerTimestamp = serverTimestamp;
+  </script>
 </head>
 <body>
 
@@ -1315,6 +1359,7 @@
     <a href="#" class="nav-monogram"> K ✦ S</a>
     <button class="menu-trigger" id="mobile-menu-btn">☰</button>
     <div class="nav-links-wrap" id="nav-links-container">
+      <button class="menu-close-trigger" id="mobile-menu-close-btn">✕</button>
       <a href="#hero-theatre">Home</a>
       <a href="#sacred-invitation">Invitation</a>
       <a href="#celebration-events">Rituals</a>
@@ -1712,7 +1757,9 @@
 
       const menuBtn = document.getElementById("mobile-menu-btn");
       const navLinksBox = document.getElementById("nav-links-container");
+      const closeMenuBtn = document.getElementById("mobile-menu-close-btn");
       menuBtn.addEventListener("click", () => navLinksBox.classList.toggle("active"));
+      closeMenuBtn.addEventListener("click", () => navLinksBox.classList.remove("active"));
       navLinksBox.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => navLinksBox.classList.remove("active"));
       });
@@ -1841,10 +1888,42 @@ END:VCALENDAR`;
         });
       }
 
-      // 9. BLESSINGS WALL SUBMISSION & RENDERING ENGINE
+      // 9. BLESSINGS WALL WITH FIREBASE FIRESTORE INTEGRATION
       const blessingForm = document.getElementById("virtual-blessing-form-engine");
       const blessingsGrid = document.getElementById("blessings-wall-render-grid");
       let blessingsData = JSON.parse(localStorage.getItem("weddingBlessings")) || [];
+
+      async function initializeFirestoreBlessings() {
+        if(!window.firebaseDB) {
+          console.log("Firebase not ready, using localStorage only");
+          renderBlessingsGrid();
+          return;
+        }
+        
+        try {
+          const blessingsRef = window.firebaseCollection(window.firebaseDB, "blessings");
+          const blessingsQuery = window.firebaseQuery(blessingsRef, window.firebaseOrderBy("timestamp", "desc"));
+          
+          // Real-time listener for Firestore updates
+          window.firebaseOnSnapshot(blessingsQuery, (snapshot) => {
+            blessingsData = snapshot.docs.map(doc => ({
+              id: doc.id,
+              ...doc.data()
+            }));
+            localStorage.setItem("weddingBlessings", JSON.stringify(blessingsData));
+            renderBlessingsGrid();
+            console.log("Loaded " + blessingsData.length + " blessings from Firestore");
+          }, (error) => {
+            console.log("Firestore sync failed, using localStorage", error);
+            blessingsData = JSON.parse(localStorage.getItem("weddingBlessings")) || [];
+            renderBlessingsGrid();
+          });
+        } catch(error) {
+          console.log("Firebase error, using localStorage", error);
+          blessingsData = JSON.parse(localStorage.getItem("weddingBlessings")) || [];
+          renderBlessingsGrid();
+        }
+      }
 
       function renderBlessingsGrid() {
         if(!blessingsGrid) return;
@@ -1862,29 +1941,47 @@ END:VCALENDAR`;
       }
 
       if(blessingForm) {
-        blessingForm.addEventListener("submit", (e) => {
+        blessingForm.addEventListener("submit", async (e) => {
           e.preventDefault();
           const nameInput = document.getElementById("blesser-identity");
           const messageInput = document.getElementById("blesser-message");
+          const submitBtn = blessingForm.querySelector("button[type='submit']");
           
           if(nameInput && messageInput && nameInput.value.trim() && messageInput.value.trim()) {
             const newBlessing = {
               name: nameInput.value.trim(),
-              message: messageInput.value.trim()
+              message: messageInput.value.trim(),
+              timestamp: window.firebaseServerTimestamp()
             };
             
-            blessingsData.push(newBlessing);
-            localStorage.setItem("weddingBlessings", JSON.stringify(blessingsData));
-            renderBlessingsGrid();
+            if(submitBtn) submitBtn.disabled = true;
+            
+            try {
+              if(window.firebaseDB) {
+                const blessingsRef = window.firebaseCollection(window.firebaseDB, "blessings");
+                await window.firebaseAddDoc(blessingsRef, newBlessing);
+                console.log("✓ Blessing saved to Firestore");
+              } else {
+                throw new Error("Firebase not initialized");
+              }
+            } catch(error) {
+              console.log("Firestore save failed, saving to localStorage", error);
+              blessingsData.unshift(newBlessing);
+              localStorage.setItem("weddingBlessings", JSON.stringify(blessingsData));
+              renderBlessingsGrid();
+            }
             
             nameInput.value = "";
             messageInput.value = "";
+            if(submitBtn) submitBtn.disabled = false;
             nameInput.focus();
           }
         });
       }
 
-      renderBlessingsGrid();
+      setTimeout(() => {
+        initializeFirestoreBlessings();
+      }, 500);
 
       // PREVENT SCROLL STUCK ON MAP IFRAME
       const venueWrapper = document.querySelector(".venue-iframe-wrapper");
