@@ -789,17 +789,29 @@
     .scroll-card {
       max-width: 880px;
       margin: 0 auto;
-      background: transparent;
-      border: none;
+      background: var(--ivory);
+      border: 2px solid rgba(212, 175, 55, 0.3);
       padding: clamp(45px, 7vw, 80px) clamp(20px, 6vw, 60px);
       position: relative;
-      box-shadow: none;
+      box-shadow: 0 28px 50px rgba(51, 0, 6, 0.12);
       z-index: 5;
       animation: invitationEntrance 2.5s ease-out both;
     }
-    .scroll-card::before,
+    .scroll-card::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed rgba(99, 7, 19, 0.2);
+      pointer-events: none;
+      box-shadow: inset 0 0 0 1px rgba(212,175,55,0.11);
+    }
     .scroll-card::after {
-      display: none;
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      box-shadow: inset 0 0 0 2px rgba(212,175,55,0.08);
+      pointer-events: none;
     }
 
     @keyframes lotusSpin {
@@ -889,258 +901,6 @@
       .nav-links-wrap.active { transform: translateX(0); }
       .menu-trigger { display: block; }
       .menu-close-trigger { display: block; }
-    }
-
-        /*==================================================
-                INVITATION SECTION
-    ==================================================*/
-
-    #sacred-invitation{
-
-        position:relative;
-
-        width:100%;
-
-        min-height:1200px;
-
-        background:#faf7ef;
-
-        overflow:hidden;
-
-        display:flex;
-
-        justify-content:center;
-
-        align-items:center;
-
-    }
-
-
-    /*=====================================
-          PNG DECORATION
-    ======================================*/
-
-    .outer-decoration{
-
-        position:absolute;
-
-        inset:0;
-
-        background:url("9.png")
-                  top center
-                  no-repeat;
-
-        background-size: 92% auto;
-
-        z-index:1;
-
-        pointer-events:none;
-
-    }
-
-
-    /*=====================================
-          CONTENT WRAPPER
-    ======================================*/
-
-    .invitation-wrapper{
-
-        position:relative;
-
-        z-index:10;
-
-        width:min(100%, 1040px);
-
-        margin:0 auto;
-
-        display:flex;
-
-        justify-content:center;
-
-        align-items:center;
-
-        padding:
-
-            90px      /* top flowers */
-
-            40px      /* left peacock */
-
-            100px     /* bottom diya */
-
-            40px;     /* elephant */
-
-    }
-
-
-    /*=====================================
-            INVITATION CARD
-    ======================================*/
-
-    .scroll-card{
-
-        width:100%;
-
-        max-width:760px;
-
-        background: transparent;
-
-        border: none;
-
-        box-shadow: none;
-
-        border-radius: 0;
-
-        padding:70px;
-
-        text-align:center;
-
-    }
-
-
-    /* Heading */
-
-    .invitation-salutation{
-
-        font-size:34px;
-
-        color:#7b1023;
-
-        margin-bottom:28px;
-
-    }
-
-
-    /* Paragraph */
-
-    .invitation-central-message p{
-
-        font-size:22px;
-
-        line-height:1.9;
-
-        color:#56422d;
-
-    }
-
-
-    /* Couple Names */
-
-    .central-names{
-
-        margin:30px 0;
-
-        font-size:56px;
-
-        color:#7b1023;
-
-        font-weight:bold;
-
-    }
-
-
-    .central-names-tamil{
-
-        font-size:34px;
-
-        color:#b08a1d;
-
-        margin-bottom:35px;
-
-    }
-
-
-    /* Muhurtham */
-
-    .muhurtham-lux-badge{
-
-        display:inline-block;
-
-        margin-top:40px;
-
-        padding:25px 45px;
-
-        border:2px solid #d8b347;
-
-        border-radius:18px;
-
-        background: transparent;
-
-    }
-
-
-    .time-data{
-
-        font-size:22px;
-
-        line-height:1.8;
-
-    }
-    @media(max-width:768px){
-
-    #sacred-invitation{
-
-    min-height:900px;
-
-    }
-
-    .outer-decoration{
-
-    background-size: 100% auto;
-
-    background-position: top center;
-
-    }
-
-    .invitation-wrapper{
-
-    padding:
-
-    90px
-
-    25px
-
-    110px
-
-    25px;
-
-    }
-
-    .scroll-card{
-
-    padding:35px 22px;
-
-    }
-
-    .invitation-salutation{
-
-    font-size:22px;
-
-    }
-
-    .central-names{
-
-    font-size:28px;
-
-    }
-
-    .central-names-tamil{
-
-    font-size:22px;
-
-    }
-
-    .invitation-central-message p{
-
-    font-size:16px;
-
-    }
-
-    .time-data{
-
-    font-size:17px;
-
-    }
-
     }
 
     /* ==========================================================================
@@ -1307,29 +1067,25 @@
        5. THE SACRED INVITATION SCROLL
        ========================================================================== */
     #sacred-invitation {
-      background-color: transparent;
-      overflow: visible;
-      position: relative;
-      padding: 0 10px 100px;
+      background-color: var(--ivory-dark);
     }
     .scroll-card {
-      width: min(100%, 880px);
+      max-width: 880px;
       margin: 0 auto;
-      background: transparent;
-      border: none;
-      padding: clamp(32px, 4vw, 60px);
+      background: var(--ivory);
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      padding: clamp(45px, 7vw, 80px) clamp(20px, 6vw, 60px);
       position: relative;
-      box-shadow: none;
-      text-align: center;
+      box-shadow: var(--shadow-luxury);
     }
     
-    /* Hide unwanted card border lines */
+    /* Authentic Kolam Corner Framework */
     .scroll-card::before {
-      display: none;
-    }
-    
-    .scroll-card::after {
-      display: none;
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed rgba(99, 7, 19, 0.2);
+      pointer-events: none;
     }
     
     .invitation-salutation {
@@ -2183,62 +1939,26 @@
     </div>
   </section>
 
-    <!-- ===========================
-      INVITATION PANEL
-  ============================ -->
+  <!-- INVITATION PANEL -->
+  <section id="sacred-invitation" class="section-container">
+    <div class="thoranam-header"></div>
+    <div class="scroll-card reveal">
+      <div class="invitation-salutation">ஸ்ரீ முருகன் துணை</div>      
+      
 
-  <section id="sacred-invitation">
-
-      <!-- Decorative PNG -->
-      <div class="outer-decoration"></div>
-
-      <!-- Invitation Card -->
-      <div class="invitation-wrapper">
-
-          <div class="scroll-card reveal">
-
-              <div class="invitation-salutation">
-                  ஸ்ரீ முருகன் துணை
-              </div>
-
-              <div class="invitation-central-message">
-
-                  <p>
-                      We cordially request the honor of your auspicious presence
-                      to witness and bless the traditional holy wedding ceremony.
-                  </p>
-
-                  <div class="central-names">
-                      Karthik Raj ❤️ Snegha
-                  </div>
-
-                  <div class="central-names-tamil">
-                      கார்த்திக் ராஜ் ♥ சினேகா
-                  </div>
-
-                  <p>
-                      As they take their sacred steps and lifelong vows
-                      surrounded by Vedic melodies, family and heritage elders.
-                  </p>
-
-              </div>
-
-              <div class="muhurtham-lux-badge">
-
-                  <h5>சுப முகூர்த்தம்</h5>
-
-                  <div class="time-data">
-                      On Sunday 23rd August 2026
-                      <br>
-                      Between 4:30 AM — 6:00 AM
-                  </div>
-
-              </div>
-
-          </div>
-
+      <div class="invitation-central-message">
+        <p>We cordially request the honor of your auspicious presence to witness and bless the traditional holy wedding ceremony.</p>
+        <div class="central-names">Karthik Raj ❤️ Snegha</div>
+        <div class="central-names-tamil">கார்த்திக் ராஜ் ♥ சினேகா</div>
+        <p>As they take their sacred steps and lifelong vows surrounded by Vedic melodies, family, and heritage elders.</p>
       </div>
 
+      <div class="muhurtham-lux-badge">
+        <h5>சுப முகூர்த்தம்</h5>
+        
+        <div class="time-data">On Sunday 23rd August 2026 between 4:30 AM — 6:00 AM</div>
+      </div>
+    </div>
   </section>
 
   <!-- COUNTDOWN METRIC -->
